@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Muli',sans-serif;
+    background-color: rgb(12, 11, 11);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.container{
+    /* this class is now made the flex so that we can see everything in a row style  */
+    display: flex;
+    /* out of 100viewport we are taking gthe space of 90  */
+    width: 90vw; 
+}
+
+.panel{
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 90vh;
+    border-radius: 50px;
+    color: rgb(236, 25, 50);
+    cursor: pointer;  /*so that when we hover over it we see the cursor*/
+    flex: 0.5;     /*this flex value will change whenever we click on the image like flex==5*/
+    margin: 10px;
+    position: relative;
+    transition: flex 2500ms ease-in; /*how the transition or expanding of cards will happen*/
+
+}
+
+.panel h3{
+    font-size: 24px;
+    position: absolute;
+    bottom: 200px;
+    left: 20px;
+    margin: 0;
+    opacity: 0;
+}
+
+ .panel.active {
+    flex: 15;
+}
+
+.panel.active h3{
+    opacity: 1;
+    transition: opacity 0.3s ease-in 1.5s;
+}
+
+@media (max-width: 480px) {
+    .container{
+        width: 100vw;
+    }
+
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5){
+        display: none;
+    }
+} 
